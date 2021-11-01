@@ -38,6 +38,7 @@ class MoodTrackerPage extends StatelessWidget {
           children: [
             Text('How are you feeling?',
                 style: Theme.of(context).textTheme.headline4),
+            MoodTrackerWidget(),
           ],
         ));
   }
@@ -71,11 +72,11 @@ class MoodEmojiButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return IconButton(
-      onPressed: () => ref.read(databaseProvider).addMood(emoji),
-      icon: Text(
+    return InkWell(
+      onTap: () => ref.read(databaseProvider).addMood(emoji),
+      child: Text(
         emoji,
-        style: Theme.of(context).textTheme.headline1,
+        style: Theme.of(context).textTheme.headline2,
       ),
     );
   }
