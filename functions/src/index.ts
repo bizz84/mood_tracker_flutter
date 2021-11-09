@@ -5,7 +5,7 @@ admin.initializeApp();
 
 exports.updateMoodCounters = functions.firestore
     .document('mood/{moodId}').onCreate((_, __) => {
-        updateCounters()
+        return updateCounters()
     });
     
 async function updateCounters() {
