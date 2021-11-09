@@ -21,7 +21,10 @@ class MoodTotals {
     };
   }
 
-  factory MoodTotals.fromMap(Map<String, dynamic> map) {
+  factory MoodTotals.fromMap(Map<String, dynamic>? map) {
+    if (map == null) {
+      return MoodTotals(positive: 0, neutral: 0, negative: 0);
+    }
     return MoodTotals(
       positive: map['positive'],
       neutral: map['neutral'],
@@ -44,7 +47,7 @@ class FirestoreDatabase {
 
   Stream<MoodTotals> moodTotals() {
     final ref = _firestore.doc('totals/mood').withConverter(
-        fromFirestore: (doc, _) => MoodTotals.fromMap(doc.data()!),
+        fromFirestore: (doc, _) => MoodTotals.fromMap(doc.data()),
         toFirestore: (MoodTotals mood, options) => mood.toMap());
     return ref.snapshots().map((snapshot) => snapshot.data()!);
   }
