@@ -7,11 +7,11 @@ import 'package:mood_tracker_flutter/firestore_database.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  // Use local Firestore emulator
   final firestore = FirebaseFirestore.instance;
   firestore.settings =
       const Settings(persistenceEnabled: false, sslEnabled: false);
-  // Use local Firestore emulator
-  FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
+  firestore.useFirestoreEmulator('localhost', 8080);
   runApp(const ProviderScope(child: MyApp()));
 }
 
