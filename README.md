@@ -1,16 +1,11 @@
-# mood_tracker_flutter
+# Mood Tracker Example App in Flutter
 
-A new Flutter project.
+This is a simple example app showing how to use Cloud Functions and the Firebase Local Emulator inside a Flutter app:
 
-## Getting Started
+![Mood Tracking Example App Preview](https://raw.githubusercontent.com/bizz84/mood_tracker_flutter/main/.github/images/mood-tracker-demo.gif)
 
-This project is a starting point for a Flutter application.
+See related tutorial on my site:
 
-A few resources to get you started if this is your first Flutter project:
+- [Flutter Tutorial: Mood Tracking App with Firebase Cloud Functions](https://codewithandrea.com/articles/flutter-tutorial-firebase-cloud-functions/)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### [LICENSE: MIT](LICENSE.md)
