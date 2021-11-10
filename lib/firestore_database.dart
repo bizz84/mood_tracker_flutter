@@ -13,6 +13,12 @@ class MoodTotals {
   final int neutral;
   final int negative;
 
+  // helper method to be used when there is no document
+  MoodTotals.zero()
+      : positive = 0,
+        neutral = 0,
+        negative = 0;
+
   Map<String, dynamic> toMap() {
     return {
       'positive': positive,
@@ -23,7 +29,7 @@ class MoodTotals {
 
   factory MoodTotals.fromMap(Map<String, dynamic>? map) {
     if (map == null) {
-      return MoodTotals(positive: 0, neutral: 0, negative: 0);
+      return MoodTotals.zero();
     }
     return MoodTotals(
       positive: map['positive'],
@@ -49,7 +55,9 @@ class FirestoreDatabase {
     final ref = _firestore.doc('totals/mood').withConverter(
         fromFirestore: (doc, _) => MoodTotals.fromMap(doc.data()),
         toFirestore: (MoodTotals mood, options) => mood.toMap());
-    return ref.snapshots().map((snapshot) => snapshot.data()!);
+    return ref
+        .snapshots()
+        .map((snapshot) => snapshot.data() ?? MoodTotals.zero());
   }
 }
 

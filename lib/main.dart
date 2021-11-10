@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -36,24 +37,25 @@ class MoodTrackerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Mood Tracker'),
-        ),
+        // appBar: AppBar(
+        //   title: const Text('Mood Tracker'),
+        // ),
         body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Spacer(),
-            Text('How are you feeling?',
-                style: Theme.of(context).textTheme.headline5),
-            const SizedBox(height: 32),
-            const MoodTrackerWidget(),
-            const Spacer(flex: 2),
-            Text('Totals', style: Theme.of(context).textTheme.headline6),
-            const SizedBox(height: 32),
-            const MoodTotalsWidget(),
-            const Spacer(flex: 3),
-          ],
-        ));
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const Spacer(),
+        Text('How are you feeling?',
+            style: Theme.of(context).textTheme.headline5),
+        const SizedBox(height: 24),
+        const MoodTrackerWidget(),
+        const SizedBox(height: 48),
+        //const Spacer(flex: 2),
+        Text('Totals', style: Theme.of(context).textTheme.headline6),
+        const SizedBox(height: 24),
+        const MoodTotalsWidget(),
+        const Spacer(flex: 3),
+      ],
+    ));
   }
 }
 

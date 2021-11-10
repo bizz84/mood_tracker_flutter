@@ -4,9 +4,7 @@ import * as functions from 'firebase-functions'
 admin.initializeApp();
 
 exports.updateMoodCounters = functions.firestore
-    .document('mood/{moodId}').onCreate((_, __) => {
-        return updateCounters()
-    });
+    .document('mood/{moodId}').onCreate((_, __) => updateCounters());
     
 async function updateCounters() {
     const firestore = admin.firestore()
