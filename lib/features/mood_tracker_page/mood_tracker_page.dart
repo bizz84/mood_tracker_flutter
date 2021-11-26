@@ -33,18 +33,25 @@ class MoodTrackerPage extends StatelessWidget {
 class MoodTrackerWidget extends StatelessWidget {
   const MoodTrackerWidget({Key? key}) : super(key: key);
 
+  static const positiveButtonKey = Key('button-positive');
+  static const neutralButtonKey = Key('button-neutral');
+  static const negativeButtonKey = Key('button-negative');
+
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: const [
         MoodEmojiButton(
+          key: positiveButtonKey,
           emoji: '😀',
         ),
         MoodEmojiButton(
+          key: neutralButtonKey,
           emoji: '😐',
         ),
         MoodEmojiButton(
+          key: negativeButtonKey,
           emoji: '😟',
         ),
       ],
@@ -71,6 +78,10 @@ class MoodEmojiButton extends ConsumerWidget {
 class MoodTotalsWidget extends ConsumerWidget {
   const MoodTotalsWidget({Key? key}) : super(key: key);
 
+  static const positiveTotalKey = Key('total-positive');
+  static const neutralTotalKey = Key('total-neutral');
+  static const negativeTotalKey = Key('total-negative');
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final moodTotalsValue = ref.watch(moodTotalsProvider);
@@ -79,14 +90,17 @@ class MoodTotalsWidget extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           MoodTotal(
+            textKey: positiveTotalKey,
             emoji: '😀',
             total: moodTotals.positive,
           ),
           MoodTotal(
+            textKey: neutralTotalKey,
             emoji: '😐',
             total: moodTotals.neutral,
           ),
           MoodTotal(
+            textKey: negativeTotalKey,
             emoji: '😟',
             total: moodTotals.negative,
           ),
@@ -102,9 +116,14 @@ class MoodTotalsWidget extends ConsumerWidget {
 }
 
 class MoodTotal extends StatelessWidget {
-  const MoodTotal({Key? key, required this.emoji, required this.total})
+  const MoodTotal(
+      {Key? key,
+      required this.textKey,
+      required this.emoji,
+      required this.total})
       : super(key: key);
   final String emoji;
+  final Key textKey;
   final int total;
   @override
   Widget build(BuildContext context) {
@@ -117,6 +136,7 @@ class MoodTotal extends StatelessWidget {
         ),
         Text(
           '$total',
+          key: textKey,
           style: Theme.of(context).textTheme.headline5,
         )
       ],

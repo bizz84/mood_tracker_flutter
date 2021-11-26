@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class MoodTotals {
   MoodTotals({
     required this.positive,
@@ -33,7 +35,32 @@ class MoodTotals {
     );
   }
 
+  MoodTotals copyWith({
+    int? positive,
+    int? neutral,
+    int? negative,
+  }) {
+    return MoodTotals(
+      positive: positive ?? this.positive,
+      neutral: neutral ?? this.neutral,
+      negative: negative ?? this.negative,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is MoodTotals &&
+        other.positive == positive &&
+        other.neutral == neutral &&
+        other.negative == negative;
+  }
+
+  @override
+  int get hashCode => positive.hashCode ^ neutral.hashCode ^ negative.hashCode;
+
   @override
   String toString() =>
-      'Mood(positive: $positive, neutral: $neutral, negative: $negative)';
+      'MoodTotals(positive: $positive, neutral: $neutral, negative: $negative)';
 }

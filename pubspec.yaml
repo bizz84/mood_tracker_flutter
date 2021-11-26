@@ -37,6 +37,7 @@ dependencies:
   firebase_core: ^1.8.0
   cloud_firestore: ^2.5.4
   flutter_riverpod: ^1.0.0
+  rxdart: ^0.27.3
 
 dev_dependencies:
   flutter_test:

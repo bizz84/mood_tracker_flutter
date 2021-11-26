@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mood_tracker_flutter/features/mood_tracker_page/mood_tracker_page.dart';
+import 'package:mood_tracker_flutter/repositories/firebase_mood_repository.dart';
 import 'package:mood_tracker_flutter/repositories/mood_repository.dart';
 
 void main() async {
