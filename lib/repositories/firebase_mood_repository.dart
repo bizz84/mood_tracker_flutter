@@ -19,6 +19,7 @@ class FirebaseMoodRepository implements MoodRepository {
         toFirestore: (MoodTotals mood, options) => mood.toMap());
     return ref
         .snapshots()
+        // return snapshot.data() or fallback if the document doesn't exist
         .map((snapshot) => snapshot.data() ?? MoodTotals.zero());
   }
 }
