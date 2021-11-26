@@ -1,0 +1,1 @@
+flutter drive --driver=test_driver/integration_test.dart --target=integration_test/fake_mood_tracker_test.dart
