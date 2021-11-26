@@ -121,8 +121,8 @@ class MoodTotalsWidget extends ConsumerWidget {
           ),
         ],
       ),
-      loading: (_) => const CircularProgressIndicator(),
-      error: (_, __, ___) => Text(
+      loading: () => const CircularProgressIndicator(),
+      error: (_, __) => Text(
         'Some error occurred',
         style: Theme.of(context).textTheme.headline6,
       ),
